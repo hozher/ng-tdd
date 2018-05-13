@@ -1,27 +1,62 @@
-import { TestBed, async } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+
 import { AppComponent } from './app.component';
+import { RouterLinkStubDirective } from '../testing/router-link-directive.stub';
+
+/* tslint:disable:component-selector */
+@Component({selector: 'router-outlet', template: ''})
+class RouterOutletStubComponent { }
+
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let element: HTMLElement;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RouterLinkStubDirective,
+        RouterOutletStubComponent
       ],
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    element = fixture.nativeElement;
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+  });
+
+  xit('1. should do something', () => {
+    expect(component).toBeTruthy();
+  });
+
+  xit(`2. should have 'TDD Workshop' as title`, () => {
+    expect(component.title).toEqual('TDD Workshop');
+  });
+
+  xit('3. should render the navigation bar', () => {
+    const nav = element.querySelector('nav');
+    expect(nav).toBeTruthy();
+    expect(nav.classList).toContain('navbar');
+  });
+
+  xit('4. should render title in an anchor tag', () => {
+    expect(element.querySelector('a.navbar-brand').textContent).toContain('Welcome to TDD Workshop!');
+  });
+
+  xit('20. should link to home and competitions page in the navbar', () => {
+    // find DebugElements with an attached RouterLinkStubDirective
+    const linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkStubDirective));
+    // get attached link directive instances using each DebugElement's injector
+    const routerLinks = linkDes.map(de => de.injector.get(RouterLinkStubDirective));
+
+    expect(routerLinks.length).toBe(2);
+    expect(routerLinks[0].linkParams).toEqual(['']);
+    expect(routerLinks[1].linkParams).toEqual(['competitions']);
+  });
 });
