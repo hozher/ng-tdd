@@ -11,4 +11,4 @@ export class RouterLinkStubDirective {
   @HostListener('click') onClick() {
     this.navigatedTo = this.linkParams;
   }
-}
+ }

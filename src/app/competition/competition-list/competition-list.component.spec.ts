@@ -17,6 +17,7 @@ describe('CompetitionListComponent', () => {
     const testData = [{
       'id': 455,
       'caption': 'Primera Division 2017',
+      'subtitle': 'Matchday 30 of 38',
       'league': 'PD',
       'year': '2017',
       'currentMatchday': 30,
@@ -27,6 +28,7 @@ describe('CompetitionListComponent', () => {
     }, {
       'id': 467,
       'caption': 'World Cup 2018 Russia',
+      'subtitle': 'Matchday 1 of 8',
       'league': 'WV',
       'year': '2018',
       'currentMatchday': 1,
@@ -56,11 +58,11 @@ describe('CompetitionListComponent', () => {
     element = fixture.nativeElement;
   });
 
-  xit('14. should do something', () => {
+  it('14. should do something', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('15. should retrieve competitions on init', () => {
+  it('15. should retrieve competitions on init', () => {
     expect(footballDataService.getCompetitions).not.toHaveBeenCalled();
 
     fixture.detectChanges();
@@ -68,7 +70,7 @@ describe('CompetitionListComponent', () => {
     expect(footballDataService.getCompetitions).toHaveBeenCalledTimes(1);
   });
 
-  xit('16. should render a list of competitions', () => {
+  it('16. should render a list of competitions', () => {
     fixture.detectChanges();
 
     const cards = element.querySelectorAll('.card');
@@ -81,7 +83,7 @@ describe('CompetitionListComponent', () => {
     expect(cards[1].querySelector('.card-subtitle').textContent).toContain('Matchday 1 of 8');
   });
 
-  xit('21. should link each item to the competition detail page', () => {
+  it('21. should link each item to the competition detail page', () => {
     fixture.detectChanges();
     // find DebugElements with an attached RouterLinkStubDirective
     const linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkStubDirective));

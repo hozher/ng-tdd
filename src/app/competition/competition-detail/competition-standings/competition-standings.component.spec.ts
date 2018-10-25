@@ -48,15 +48,15 @@ describe('CompetitionStandingsComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('26. should do something', () => {
+  it('26. should do something', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('27. should display a table', () => {
+  it('27. should display a table', () => {
     expect(element.querySelector('table')).toBeTruthy();
   });
 
-  xit('28. should display a header row', () => {
+  it('28. should display a header row', () => {
     const headerRow = element.querySelector('thead > tr');
     expect(headerRow).toBeTruthy();
 
@@ -65,7 +65,7 @@ describe('CompetitionStandingsComponent', () => {
     expect(headerRowCells[1].textContent).toBe('Club');
   });
 
-  xit('29. should display team standings in body rows', () => {
+  it('29. should display team standings in body rows', () => {
     const bodyRows = element.querySelectorAll('tbody > tr');
     expect(bodyRows).toBeTruthy();
     expect(bodyRows.length).toBe(1);

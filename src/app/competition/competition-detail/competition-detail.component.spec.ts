@@ -45,11 +45,11 @@ describe('CompetitionDetailComponent', () => {
     element = fixture.nativeElement;
   });
 
-  xit('22. should do something', () => {
+  it('22. should do something', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('23. should retrieve competition standings on init', () => {
+  it('23. should retrieve competition standings on init', () => {
     expect(footballDataService.getCompetitionStandings).not.toHaveBeenCalled();
 
     fixture.detectChanges();
@@ -58,7 +58,7 @@ describe('CompetitionDetailComponent', () => {
     expect(footballDataService.getCompetitionStandings).toHaveBeenCalledWith(10);
   });
 
-  xit('24. should retrieve competition standings when route changes', () => {
+  it('24. should retrieve competition standings when route changes', () => {
     expect(footballDataService.getCompetitionStandings).not.toHaveBeenCalled();
 
     fixture.detectChanges();
@@ -68,7 +68,7 @@ describe('CompetitionDetailComponent', () => {
     expect(footballDataService.getCompetitionStandings).toHaveBeenCalledWith(15);
   });
 
-  xit('25. should render the competition standings component', () => {
+  it('25. should render the competition standings component', () => {
     expect(element.querySelector('app-competition-standings')).toBeTruthy();
   });
 });

@@ -1,11 +1,14 @@
 <div class="container p-3">
 
-  <div class="list-group">
-    <a
-       [href]=""
-       class="list-group-item list-group-item-action"
-       target="_blank">
 
-    </a>
-  </div>
+
+        <a *ngFor="let item of items"
+           [href]="item.url"
+           class="list-group-item list-group-item-action"
+           target="_blank">
+           {{item.title}}
+          </a>
+
+
+  <h2>{{title | uppercase}}</h2>
 </div>

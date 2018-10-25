@@ -17,10 +17,15 @@ export class CompetitionDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private footballData: FootballDataService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
     this.standings$ = this.route.paramMap;
+    this.route.paramMap.pipe(
+      map((params: ParamMap) => params.get(('id')))
+      ).subscribe(id => this.footballData.getCompetitionStandings(id));
   }
 
 }

@@ -21,17 +21,17 @@ describe('FootballDataService', () => {
     httpTestingController.verify();
   });
 
-  xit('9. should do something', () => {
+  it('9. should do something', () => {
     expect(service).toBeTruthy();
   });
 
   describe('Method: getCompetitions', () => {
 
-    xit('10. should expose a method to get competitions', () => {
+    it('10. should expose a method to get competitions', () => {
       expect(service.getCompetitions).toBeDefined();
     });
 
-    xit('11. should retrieve an array of competitions from the API', () => {
+    it('11. should retrieve an array of competitions from the API', () => {
       const testData = [{
         'id': 424,
         'caption': 'European Championships France 2016',
@@ -57,11 +57,11 @@ describe('FootballDataService', () => {
 
   describe('Method: getCompetitionStandings', () => {
 
-    xit('12. should expose a method to get competition standings', () => {
+    it('12. should expose a method to get competition standings', () => {
       expect(service.getCompetitionStandings).toBeDefined();
     });
 
-    xit('13. should retrieve competition standings from the API', () => {
+    it('13. should retrieve competition standings from the API', () => {
       const testData = {
         'leagueCaption': 'Primera Division 2017',
         'matchday': 28,

@@ -24,7 +24,7 @@ describe('AppRoutingModule', () => {
     router = TestBed.get(Router);
   });
 
-  xit('17. should navigate to home', async(() => {
+  it('17. should navigate to home', async(() => {
     router.navigate(['']).then(() => {
       expect(location.path()).toBe('/');
     });

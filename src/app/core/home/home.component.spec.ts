@@ -21,19 +21,19 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('5. should do something', () => {
+  it('5. should do something', () => {
     expect(component).toBeTruthy();
   });
 
-  xit(`6. should have 'Angular Fundamentals' as title`, async(() => {
+  it(`6. should have 'Angular Fundamentals' as title`, async(() => {
     expect(component.title).toEqual('Angular Fundamentals');
   }));
 
-  xit('7. should render title in a h2 tag', async(() => {
+  it('7. should render title in a h2 tag', async(() => {
     expect(element.querySelector('h2').textContent).toEqual('ANGULAR FUNDAMENTALS');
   }));
 
-  xit(`8. should render the fundamental links`, async(() => {
+  it(`8. should render the fundamental links`, async(() => {
     const a = element.querySelectorAll('a');
     expect(a.length).toBe(3);
 

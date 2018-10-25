@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompetitionListComponent } from './competition-list/competition-list.component';
 import { CompetitionDetailComponent } from './competition-detail/competition-detail.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: 'competitions', component: CompetitionListComponent},
+  { path: 'competitions/:id', component: CompetitionDetailComponent}
+];
 
 @NgModule({
   imports: [

@@ -12,10 +12,10 @@ export class CompetitionListComponent implements OnInit {
 
   competitions$: Observable<any>;
 
-  constructor() { }
+  constructor(private football: FootballDataService) {}
 
   ngOnInit() {
-
+    this.competitions$ = this.football.getCompetitions();
   }
 
 }

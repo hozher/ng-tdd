@@ -1,9 +1,10 @@
 <div class="container p-3">
-  <div class="card-columns">
-    <div class="card">
+  <div *ngIf="competitions$ | async as competitions"class="card-columns">
+    <div *ngFor="let competition of competitions"  class="card">
       <div class="card-body">
-        <h5 class="card-title"></h5>
-        <h6 class="card-subtitle text-muted"></h6>
+        <h5 class="card-title">{{competition.caption}}</h5>
+        <h6 class="card-subtitle text-muted">{{competition.subtitle}}</h6>
+        <a [routerLink]="['.', competition.id]">{{competition.id}}</a>
       </div>
     </div>
   </div>

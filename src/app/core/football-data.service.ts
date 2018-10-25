@@ -6,22 +6,25 @@ import { CoreModule } from './core.module';
 import { Observable } from 'rxjs/internal/Observable';
 
 const headers = new HttpHeaders({
-  'X-Auth-Token': '', // Register for a free API token https://www.football-data.org/client/register
+  'X-Auth-Token': 'XXX', // Register for a free API token https://www.football-data.org/client/register
 });
 
 @Injectable()
 export class FootballDataService {
 
-  private apiUrl = 'http://api.football-data.org/v1/';
+  private apiUrl = 'http://api.football-data.org/v1/competitions';
 
   constructor(private http: HttpClient) { }
 
   getCompetitions(): Observable<any>  {
-    return;
+    return this.http.get(this.apiUrl, { headers: headers });
   }
 
   getCompetitionStandings(id: any): Observable<any> {
-    return;
+    return this.http.get(this.apiUrl + '/' + id + '/leagueTable', { headers: headers })
+    .pipe(
+      map(e => e['standing'])
+    );
   }
 
 }

@@ -1,1 +1,14 @@
-
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Club</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of standings">
+            <th>{{item.position}}</th>
+            <td>{{item.teamName}}</td>
+        </tr>
+    </tbody>
+</table>

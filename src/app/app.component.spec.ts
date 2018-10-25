@@ -31,25 +31,25 @@ describe('AppComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('1. should do something', () => {
+  it('1. should do something', () => {
     expect(component).toBeTruthy();
   });
 
-  xit(`2. should have 'TDD Workshop' as title`, () => {
+  it(`2. should have 'TDD Workshop' as title`, () => {
     expect(component.title).toEqual('TDD Workshop');
   });
 
-  xit('3. should render the navigation bar', () => {
+  it('3. should render the navigation bar', () => {
     const nav = element.querySelector('nav');
     expect(nav).toBeTruthy();
     expect(nav.classList).toContain('navbar');
   });
 
-  xit('4. should render title in an anchor tag', () => {
+  it('4. should render title in an anchor tag', () => {
     expect(element.querySelector('a.navbar-brand').textContent).toContain('Welcome to TDD Workshop!');
   });
 
-  xit('20. should link to home and competitions page in the navbar', () => {
+  it('20. should link to home and competitions page in the navbar', () => {
     // find DebugElements with an attached RouterLinkStubDirective
     const linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkStubDirective));
     // get attached link directive instances using each DebugElement's injector

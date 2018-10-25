@@ -13,8 +13,11 @@ export class HomeComponent {
   }, {
     title: 'Structural Directives',
     url: 'https://angular.io/guide/structural-directives'
+  }, {
+    title: 'Pipess',
+    url: 'https://angular.io/guide/pipes'
   }];
-  title: string;
+  title = 'Angular Fundamentals';
 
   constructor() { }
 
